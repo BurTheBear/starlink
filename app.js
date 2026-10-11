@@ -75,9 +75,10 @@ selectWorld(0);
 
 // Host the supplied complete game in its own document, so its controls and UI stay intact.
 const gameFrame=$('#game-frame'),gameShell=$('#game-shell');
+const gameFileMode=location.protocol==='file:';
 let gameLoaded=false,gameReady=false,gamePaused=false,gameInView=false,gameSound=true,gameLoadTimer;
 function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('visible');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('visible'),3500);}
-function sendGame(command,extra={}){if(gameLoaded)gameFrame.contentWindow?.postMessage({type:'starlink-host',command,...extra},location.origin==='null'?'*':location.origin);}
+function sendGame(command,extra={}){if(gameLoaded)gameFrame.contentWindow?.postMessage({type:'starlink-host',command,...extra},gameFileMode||location.origin==='null'?'*':location.origin);}
 function setSound(enabled){gameSound=enabled;const top=$('#sound-toggle');top.setAttribute('aria-pressed',String(enabled));top.setAttribute('aria-label',enabled?'Turn game sound off':'Turn game sound on');$('span',top).textContent=enabled?'Sound on':'Sound off';$('#game-sound').setAttribute('aria-pressed',String(enabled));$('#game-sound').textContent=enabled?'Sound on':'Sound off';sendGame('mute',{muted:!enabled});}
 setSound(true);
 $('#sound-toggle').addEventListener('click',()=>setSound(!gameSound));$('#game-sound').addEventListener('click',()=>setSound(!gameSound));
@@ -92,9 +93,9 @@ function launchGame(){
 function enterGame(){const target=$('#play');target.scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth'});launchGame();}
 $$('[data-play]').forEach(button=>button.addEventListener('click',enterGame));$('#launch-game').addEventListener('click',launchGame);$('#try-mission').addEventListener('click',enterGame);
 $('#retry-game').addEventListener('click',()=>{gameLoaded=false;gameFrame.removeAttribute('srcdoc');gameFrame.removeAttribute('src');launchGame();});
-gameFrame.addEventListener('load',()=>{sendGame('mute',{muted:!gameSound});sendGame(gameInView&&!$('#presentation').open?'activate':'suspend');});
+gameFrame.addEventListener('load',()=>{sendGame('mute',{muted:!gameSound});sendGame(gameInView&&!$('#presentation').open?'activate':'suspend');if(gameFileMode){$('#game-loading').hidden=true;clearTimeout(gameLoadTimer);}});
 window.addEventListener('message',event=>{
- if(event.source!==gameFrame.contentWindow || (location.origin!=='null'&&event.origin!==location.origin))return;
+ if(event.source!==gameFrame.contentWindow || (!gameFileMode&&location.origin!=='null'&&event.origin!==location.origin))return;
  const state=event.data;if(state?.type!=='starlink-state')return;
  if(state.error){$('#game-loading').hidden=false;$('#game-loading-message').textContent=state.error;$('#retry-game').hidden=false;$('#game-status').textContent='LET’S TRY THAT LAUNCH AGAIN';return;}
  if(!state.ready){if(state.loading)$('#game-loading-message').textContent=state.loading;return;}
