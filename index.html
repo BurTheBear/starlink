@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1c1a3c">
+  <meta name="description" content="Play Starlink: explore the Doodle System with Dot and the Kettle, collect six Star Shards, and relight the Great Lantern. A colorful 3D game built with AI.">
+  <title>STARLINK — Play the Doodle System</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mission">Skip to the mission</a>
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Starlink home"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 2l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/></svg>STARLINK</a>
+    <nav aria-label="Main navigation"><a href="#mission">The mission</a><a href="#galaxy">The galaxy</a><a href="#play">Play the game</a><a href="#making">The making</a></nav>
+    <div class="header-actions"><button class="sound-button" id="sound-toggle" aria-label="Turn ambient sound on" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h4l5-4v14l-5-4H5z"/><path class="sound-waves" d="M18 8q5 4 0 8"/></svg><span>Sound off</span></button><button class="present-button" data-present>Present <span>↗</span></button></div>
+  </header>
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span>A PLAYABLE 3D ADVENTURE, BUILT WITH AI.</div>
+          <h1 id="hero-heading" class="comic-logo" aria-label="Starlink"><span style="--letter:#f28cba;--angle:-3deg">S</span><span style="--letter:#f0938c;--angle:2deg">T</span><span style="--letter:#ffb06c;--angle:-2deg">A</span><span style="--letter:#ffdf66;--angle:1deg">R</span><span style="--letter:#a6df80;--angle:-3deg">L</span><span style="--letter:#81d6c5;--angle:1deg">I</span><span style="--letter:#8cbdff;--angle:-2deg">N</span><span style="--letter:#b197ff;--angle:3deg">K</span></h1>
+          <p class="hero-tagline">Relight the Great Lantern.<br>Save the Doodle System.</p>
+          <p class="hero-description">Meet Dot. Board the Kettle.<br>Turn six lost Star Shards into a brighter universe.</p>
+          <div class="hero-ctas"><button class="button button-peach" data-play>Play Starlink <span>▶</span></button><button class="text-link" data-present>Meet the adventure <span>↗</span></button></div>
+          <div class="hero-note"><span class="tiny-star">✳</span><span>Play the full 3D game, right here.<br><b>Mouse & keyboard · Gamepad · Touch controls</b></span></div>
+        </div>
+        <div class="hero-art" id="hero-art">
+          <canvas id="hero-canvas" aria-label="An animated illustrated galaxy with tiny planets and a patched-up rocket"></canvas>
+          <div class="art-caption"><span class="crosshair">⌖</span><span>THE DOODLE SYSTEM</span><span class="caption-line"></span><span>01 / ∞</span></div>
+          <button class="planet-label label-meadow" data-world-link="0"><span class="label-point"></span>PEBBLE <span>↗</span></button>
+          <button class="planet-label label-ember" data-world-link="2"><span class="label-point"></span>CINDER <span>↗</span></button>
+          <button class="planet-label label-moonbloom" data-world-link="1"><span class="label-point"></span>MALLOW <span>↗</span></button>
+          <button class="game-snapshot" data-play aria-label="Play Starlink, shown here on Pebble"><img src="pebble-gameplay.jpg" alt="Dot in a white space suit and red scarf on Pebble, surrounded by cartoon houses and stars"><span class="snapshot-tape">ACTUAL GAMEPLAY / PEBBLE</span><span class="snapshot-play">▶ <span>Jump into the game!</span></span></button><div class="hero-orbit-note">a whole world<br>of doodles!<svg viewBox="0 0 80 50" aria-hidden="true"><path d="M2 3Q10 45 65 28m-12-3 12 3-8 12"/></svg></div>
+          <div class="art-hint"><span>↔</span> Your next adventure starts with one little click.</div>
+        </div>
+      </div>
+      <div class="hero-bottom"><span>8 PLANETS. 6 SHARDS. ONE GREAT LANTERN.</span><span>EXPLORE. COLLECT. RECONNECT.</span><a href="#mission">SCROLL TO DISCOVER <span>↓</span></a></div>
+    </section>
+
+    <section class="mission section-light" id="mission" aria-labelledby="mission-heading">
+      <div class="section-heading"><span class="section-index">01 / THE MISSION</span><span class="small-label">EVERY ADVENTURE STARTS WITH A SPARK</span></div>
+      <div class="mission-grid">
+        <div><h2 id="mission-heading">The Great Lantern went dark.<br><em>Dot is the little light.</em></h2><p class="section-description">The Gloom has dimmed the Doodle System. Help Professor Hoot, recover six Star Shards, and fly them home in the Kettle. Along the way: little towns, strange friends, and the not-so-friendly Gloom King.</p><button class="text-link dark" id="try-mission">Take the controls <span>↗</span></button></div>
+        <div class="mission-sketch" aria-hidden="true"><svg viewBox="0 0 450 300"><defs><radialGradient id="star-glow"><stop stop-color="#f1c567" stop-opacity=".4"/><stop offset="1" stop-color="#f1c567" stop-opacity="0"/></radialGradient></defs><circle cx="225" cy="145" r="133" fill="url(#star-glow)"/><g fill="none" stroke="#26332f" stroke-width="1.5" stroke-dasharray="3 7"><ellipse cx="225" cy="145" rx="174" ry="73" transform="rotate(-17 225 145)"/><ellipse cx="225" cy="145" rx="128" ry="122"/></g><path d="m225 56 23 60 63 21-60 26-26 65-22-62-63-22 62-25z" fill="#f6c76e" stroke="#26332f" stroke-width="3"/><path d="m225 86 13 41 40 12-41 15-13 41-14-40-41-13 41-14z" fill="#fbe7aa"/><g stroke="#26332f" stroke-width="2"><circle cx="83" cy="176" r="21" fill="#aac2a5"/><circle cx="351" cy="86" r="21" fill="#eda275"/><circle cx="293" cy="247" r="21" fill="#bdadc7"/></g><g fill="#fff9e9" stroke="#26332f" stroke-width="1.7"><path d="m79 164 9 10-9 12-9-11z"/><path d="m350 74 9 10-9 12-9-11z"/><path d="m292 235 9 10-9 12-9-11z"/></g><g fill="#26332f" font-size="11" font-family="monospace"><text x="14" y="222">01 — EXPLORE</text><text x="313" y="44">02 — RECOVER</text><text x="328" y="287">03 — RELIGHT</text></g><path d="m377 132 3 8 9 3-9 3-3 8-3-8-8-3 8-3z" fill="#eda275"/></svg><div class="sketch-caption">SIX STAR SHARDS. ONE VERY BIG LAMP.</div></div>
+      </div>
+      <div class="mission-steps"><div><span>01</span><h3>Find your footing.</h3><p>Explore tiny round worlds, full of little things to discover.</p></div><div><span>02</span><h3>Follow your curiosity.</h3><p>Board the Kettle. Help the locals. Recover a lost Star Shard.</p></div><div><span>03</span><h3>Bring back the light.</h3><p>Return six shards to the Great Lantern and brighten the Doodle System.</p></div></div>
+      <div class="student-presentation-card"><div class="presentation-card-star" aria-hidden="true">✦</div><div><span class="eyebrow">SIX CHAPTERS. ONE AMBITIOUS IDEA.</span><h3>I know you’re smart.<br><em>Now follow your curiosity.</em></h3><p>A presentation for high-achieving minds, with animated worlds, a human + AI creative process, and a challenge you can actually play.</p></div><button class="button button-peach" data-present>Start the presentation <span>↗</span></button></div>
+    </section>
+
+    <section class="galaxy" id="galaxy" aria-labelledby="galaxy-heading">
+      <div class="section-heading"><span class="section-index">02 / THE GALAXY</span><span class="small-label">THE DOODLE SYSTEM · PICK A PLANET</span></div>
+      <div class="galaxy-heading"><h2 id="galaxy-heading">A universe with<br><em>a little character.</em></h2><p>Bold outlines. Wobbly ink. A whole lot of personality.<br>These are the worlds inside Starlink.</p></div>
+      <div class="world-explorer">
+        <div class="world-visual"><canvas id="world-canvas" aria-label="Interactive rotating illustration of Pebble planet. Drag to rotate."></canvas><div class="world-coordinate" id="world-coordinate">SECTOR 01 · PEBBLE</div><div class="rotate-hint">↔ &nbsp; DRAG TO ROTATE</div><div class="world-deco" aria-hidden="true">✳</div></div>
+        <div class="world-info"><div class="world-tabs" role="tablist" aria-label="Planets in the game"><button role="tab" id="world-tab-0" aria-controls="world-panel" aria-selected="true" tabindex="0" data-world="0">Pebble</button><button role="tab" id="world-tab-1" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="1">Mallow</button><button role="tab" id="world-tab-2" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="2">Cinder</button><button role="tab" id="world-tab-3" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="3">Frostbite</button><button role="tab" id="world-tab-4" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="4">Inkwell</button><button role="tab" id="world-tab-5" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="5">Turbo Moon</button><button role="tab" id="world-tab-6" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="6">Bloom</button><button role="tab" id="world-tab-7" aria-controls="world-panel" aria-selected="false" tabindex="-1" data-world="7">Jellyroll</button></div><div id="world-panel" role="tabpanel" aria-labelledby="world-tab-0"><div class="eyebrow" id="world-type">THE PLACE YOU CALL HOME</div><h3 id="world-name">Pebble</h3><p id="world-description">Home to Pebbleton, Dot’s place, and Professor Hoot’s observatory. Find the lost Glimmers here before the Kettle can take you to the rest of the system.</p><div class="world-traits" id="world-traits"><span>Pebbleton</span><span>Lost Glimmers</span></div><div class="world-field-note"><span>FIELD NOTE / 01</span><p id="world-note">“Even the smallest planet can be the start of something enormous.”</p></div></div><button class="text-link" id="next-world">Next destination <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="play-section section-light" id="play" aria-labelledby="play-heading">
+      <div class="section-heading"><span class="section-index">03 / YOUR TURN</span><span class="small-label">THE FULL GAME · PLAY RIGHT HERE</span></div>
+      <div class="play-heading"><div><h2 id="play-heading">The adventure is real.<br><em>And you're invited.</em></h2><p class="section-description">Explore Pebble, meet Professor Hoot, and follow the star marker. The complete Starlink adventure is ready to play, right here.</p></div><div class="play-sticker">8 worlds!<br><span>One big adventure.</span></div></div>
+      <div class="game-shell" id="game-shell"><div class="game-toolbar"><span class="game-status"><span class="status-dot"></span><span id="game-status" aria-live="polite">YOUR KETTLE IS WAITING</span></span><div class="game-tools"><button id="game-pause" class="chip-button" hidden>Pause game</button><button id="game-sound" class="chip-button" aria-pressed="true">Sound on</button><button id="game-fullscreen" class="chip-button">Fullscreen ⛶</button></div></div>
+        <div class="game-stage" id="game-stage"><iframe id="game-frame" title="Starlink — the full playable 3D game" allow="autoplay; fullscreen; gamepad" allowfullscreen hidden></iframe>
+          <div class="game-cover" id="game-cover"><img src="pebble-gameplay.jpg" alt="A real scene from Starlink on the planet Pebble"><div class="game-cover-copy"><span class="eyebrow">DOT. THE KETTLE. THE WHOLE DOODLE SYSTEM.</span><h3>Ready, little explorer?</h3><p>Your adventure is already inside this website.</p><button class="button button-peach" id="launch-game">Launch Starlink <span>▶</span></button><small>Best with mouse and keyboard. Touch & gamepads work too.</small></div></div>
+          <div class="game-loading" id="game-loading" hidden><span class="loading-star">✦</span><h3>Inking the planets...</h3><p id="game-loading-message">Waking up the townsfolk and tuning the jazz band.</p><button class="button button-peach" id="retry-game" hidden>Try again ↻</button></div>
+        </div>
+        <div class="game-infobar"><span id="game-location">START ON PEBBLE</span><span id="game-progress" aria-live="polite">6 SHARDS TO RECOVER</span><span>SAVES ON THIS DEVICE</span></div>
+      </div>
+      <div class="control-strip"><span><kbd>W A S D</kbd> Move</span><span><kbd>SPACE</kbd> Jump</span><span><kbd>E</kbd> Interact</span><span><kbd>SHIFT</kbd> Run / boost</span><span><kbd>M</kbd> Map</span><span><kbd>ESC / P</kbd> Pause</span></div>
+      <p class="game-note">✦ Click inside the game to play. Esc releases the mouse. Your three save slots stay in this browser.</p>
+    </section>
+
+    <section class="making" id="making" aria-labelledby="making-heading">
+      <div class="section-heading"><span class="section-index">04 / THE MAKING</span><span class="small-label">HUMAN IMAGINATION × AI-GENERATED CODE</span></div>
+      <div class="making-grid"><div><h2 id="making-heading">Built through prompts.<br><em>Powered by possibility.</em></h2><p class="section-description">The challenge: create a playable space game using AI-assisted programming, with code generated by AI. The human part? The idea, the direction, and every decision that makes it feel like an adventure.</p><div class="making-stamp"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="m18 3 4 10 11 5-11 4-4 11-4-11-11-4 11-5z"/></svg><span>IMAGINED BY A HUMAN.<br>BUILT WITH AI.</span></div></div><div class="process"><button class="process-item active" data-process="0" aria-expanded="true"><span class="process-number">01</span><span><b>Imagine the world</b><span class="process-body">Start with a feeling: a warm, cartoon universe with ink outlines and tiny planets you can explore.</span></span><i>−</i></button><button class="process-item" data-process="1" aria-expanded="false"><span class="process-number">02</span><span><b>Prompt the possibilities</b><span class="process-body">Describe movement, environments, missions, and atmosphere. Turn the creative direction into AI-generated code.</span></span><i>+</i></button><button class="process-item" data-process="2" aria-expanded="false"><span class="process-number">03</span><span><b>Play. Notice. Iterate.</b><span class="process-body">Try the build. Notice what feels right and what needs work. Guide improvements through the next prompt.</span></span><i>+</i></button><button class="process-item" data-process="3" aria-expanded="false"><span class="process-number">04</span><span><b>Connect the adventure</b><span class="process-body">Bring exploration, rocket flight, and the Great Lantern mission together into one coherent 3D game. Play it right here in the website.</span></span><i>+</i></button></div></div>
+    </section>
+
+    <section class="final-section"><span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span><h2>Small rocket.<br><em>Limitless possibility.</em><span aria-hidden="true">✦</span></h2><div class="final-actions"><button class="button button-peach" data-present>Take the guided tour <span>↗</span></button><button class="text-link" data-play>Play the full game <span>▶</span></button></div><p>STARLINK · RELIGHT THE GREAT LANTERN</p></section>
+  </main>
+  <footer><a class="brand" href="#home">✦ STARLINK</a><span>A LITTLE CURIOSITY GOES A LONG WAY.</span><button data-play>Play Starlink <span>▶</span></button></footer>
+
+  <dialog id="presentation" aria-labelledby="presentation-title">
+    <div class="presentation-top"><a class="brand" href="#">✦ STARLINK</a><span id="tour-chapter">01 / HELLO, CURIOUS MINDS</span><div><button id="fullscreen-button" class="icon-button" aria-label="Enter fullscreen presentation">⛶</button><button id="close-presentation" class="icon-button" aria-label="Close presentation">✕</button></div></div>
+    <div class="presentation-main"><div class="presentation-copy"><span class="eyebrow" id="tour-eyebrow">TO THE 4.0 CROWD: BRING YOUR CURIOSITY.</span><h2 id="presentation-title">I know you’re smart.<br><em>Now follow your curiosity.</em></h2><p id="tour-body">You’re used to aiming high. Here’s a different kind of challenge: take one “what if?”, turn it into a universe, and invite everyone else inside. This is Starlink.</p><div class="tour-world-choices" id="tour-worlds" role="group" aria-label="Choose a planet to preview" hidden><button data-tour-world="0" aria-pressed="true">Pebble</button><button data-tour-world="1" aria-pressed="false">Mallow</button><button data-tour-world="2" aria-pressed="false">Cinder</button><button data-tour-world="3" aria-pressed="false">Frostbite</button><button data-tour-world="4" aria-pressed="false">Inkwell</button><button data-tour-world="5" aria-pressed="false">Turbo Moon</button><button data-tour-world="6" aria-pressed="false">Bloom</button><button data-tour-world="7" aria-pressed="false">Jellyroll</button></div><button class="button button-peach" id="tour-cta">Start with a what-if <span>→</span></button><details class="speaker-notes"><summary>Presenter notes</summary><p id="speaker-note"></p></details></div><div class="tour-art"><canvas id="tour-canvas" aria-label="Animated Starlink universe"></canvas><span class="tour-art-note" id="tour-art-note" aria-live="polite">A SMALL ROCKET. AN AMBITIOUS IDEA.</span></div></div>
+    <div class="presentation-bottom"><div class="tour-dots" aria-label="Presentation chapters"><button data-chapter="0" aria-label="Chapter 1: Hello, curious minds" aria-current="step">01 <span>HELLO</span></button><button data-chapter="1" aria-label="Chapter 2: The what-if">02 <span>WHAT IF</span></button><button data-chapter="2" aria-label="Chapter 3: Pick your planet">03 <span>WORLDS</span></button><button data-chapter="3" aria-label="Chapter 4: A reason to explore">04 <span>MISSION</span></button><button data-chapter="4" aria-label="Chapter 5: The building mindset">05 <span>MAKING</span></button><button data-chapter="5" aria-label="Chapter 6: Your turn">06 <span>YOUR TURN</span></button></div><div class="tour-navigation"><span>← → TO NAVIGATE</span><button id="tour-prev" class="icon-button" aria-label="Previous chapter">←</button><button id="tour-next" class="icon-button" aria-label="Next chapter">→</button></div></div>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
